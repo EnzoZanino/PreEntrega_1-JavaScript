@@ -1,4 +1,4 @@
-/* console.log(' ')
+console.log(' ')
 let hour = prompt('Escribe que hora es: ');
 if (hour < 12 && hour >= 6) {
     console.log("Buen día");
@@ -23,7 +23,12 @@ console.log(' ')
 console.log('Mitad del anterior numero con Ciclo FOR en reversa <- <-')
 for (let i = numeroMaximo/2; i > 0; i--) {
     console.log(i);
-} */
+}
+
+
+console.log(' ')
+alert('Ingrese 2 numeros para un calculo matematico: ')
+
 
 /* CALCULADORA - CALCULADORA + CALCULADORA * CALCULADORA / CALCULADORA - CALCULADORA + CALCULADORA * CALCULADORA /  */
 
