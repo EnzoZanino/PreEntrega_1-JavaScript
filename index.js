@@ -1,38 +1,46 @@
-console.log(' ')
-let hour = prompt('Escribe que hora es: ');
-if (hour < 12 && hour >= 6) {
-    console.log("Buen día");
-} else if (hour <= 18 && hour >= 12) {
-    console.log("Buenas tardes");
-} else if (hour <= 23 && hour >= 19 || hour >= 0 && hour <= 6) {
-    console.log("Buenas noches");
-} else {
-    console.log("Error: La hora debe ser de 0hs hasta 24hs")
+
+
+/* // LISTADO DE ALUMNOS EN UN CURSO - LISTADO DE ALUMNOS EN UN CURSO - LISTADO DE ALUMNOS EN UN CURSO - LISTADO DE ALUMNOS EN UN CURSO  */
+
+let contador = 0
+const listaNombres = []
+console.log(listaNombres.length)
+let cantidad = Number(prompt('Ingrese cantidad de alumnos en curso que desea ingresar:'))
+
+do {
+    let entrada = prompt('Ingresar nombre de alumno en el curso:')
+    listaNombres.push(entrada.toUpperCase())
+    contador++
+    alert('Ha ingresado el alumno numero: ' + contador)
+    if (contador === cantidad) {
+        alert('lista terminada')
+    }
+}while(listaNombres.length !== cantidad)
+
+console.log(listaNombres.join('\n'))
+
+function findFilter (opcion) {
+    switch (opcion) {
+        case '1':
+            let nombreAlumno = prompt('Nombre de alumno que desea buscar:')
+            let alumnoMayus = nombreAlumno.toUpperCase()
+            let busqueda = listaNombres.find((alumno) => alumno.includes(alumnoMayus))
+            return alert('alumno buscado: ' + busqueda)
+        case '2':
+            let nombreAlumno2 = prompt('Ingrese nombre que desea filtrar:')
+            let alumnoMayus2 = nombreAlumno2.toUpperCase()
+            let busqueda2 = listaNombres.filter((alumno) => alumno.includes(alumnoMayus2))
+            return alert('alumnos filtrados: ' + busqueda2)
+    }
 }
 
-console.log(' ')
-console.log('Ciclo WHILE progresivo -> ->')
-let numeroMaximo = prompt('Ingrese hasta que numero quiere contar: ');
-let contador = 1;
-while (contador <= numeroMaximo) {
-    console.log(contador);
-    contador++;
-}
+let findFilterFinal = findFilter(prompt('Escriba 1 si quiere buscar o 2 si desea filtrar'))
 
-console.log(' ')
-console.log('Mitad del anterior numero con Ciclo FOR en reversa <- <-')
-for (let i = numeroMaximo/2; i > 0; i--) {
-    console.log(i);
-}
-
-
-console.log(' ')
-alert('Ingrese 2 numeros para un calculo matematico: ')
-
+/* // LISTADO DE ALUMNOS EN UN CURSO - LISTADO DE ALUMNOS EN UN CURSO - LISTADO DE ALUMNOS EN UN CURSO - LISTADO DE ALUMNOS EN UN CURSO  */
 
 /* CALCULADORA - CALCULADORA + CALCULADORA * CALCULADORA / CALCULADORA - CALCULADORA + CALCULADORA * CALCULADORA /  */
 
-function calculadora(numero1, operacion, numero2){
+function calculadora(operacion, numero1, numero2){
     switch (operacion) {
         case '+':
             return numero1 + numero2
@@ -49,13 +57,24 @@ function calculadora(numero1, operacion, numero2){
         case '*':
             return numero1 * numero2
             break;
+        case '%':
+            let numeroPorcentajeTotal = prompt('El 100% de mi numero es:')
+            let porcentajeDeseado = prompt('quiero el ...% del total: ')
+            return resultado2 = (porcentajeDeseado * numeroPorcentajeTotal / 100)
         default:
             return 'Debe definir una operación correcta'
             break;
     }
 }
 
-let resultado = calculadora(Number(prompt('ingrese numero 1')), prompt('ingrese la operacion'), Number(prompt('ingrese numero 2')));
-console.log('El resultado es: ' + resultado)
+let resultadoOperacion = prompt('Ingrese que operacion desea ejecutar: (+, -, *, / o %)');
+if (resultadoOperacion != '%') {
+    let resultado1 = calculadora (resultadoOperacion, Number(prompt('ingrese numero 1')), Number(prompt('ingrese numero 2')) )
+    alert('El resultado es: ' + resultado1)
+} else {
+    let resultado2 = calculadora (resultadoOperacion, 0, 0)
+    alert('El resultado es: ' + resultado2)
+}
+
 
 /* CALCULADORA - CALCULADORA + CALCULADORA * CALCULADORA / CALCULADORA - CALCULADORA + CALCULADORA * CALCULADORA /  */
